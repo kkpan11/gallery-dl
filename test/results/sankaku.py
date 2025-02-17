@@ -18,6 +18,12 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://www.sankakucomplex.com/?tags=bonocho",
+    "#category": ("booru", "sankaku", "tag"),
+    "#class"   : sankaku.SankakuTagExtractor,
+},
+
+{
     "#url"     : "https://beta.sankakucomplex.com/?tags=bonocho",
     "#category": ("booru", "sankaku", "tag"),
     "#class"   : sankaku.SankakuTagExtractor,
@@ -100,6 +106,20 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://www.sankakucomplex.com/books/8YEa7EERmD0",
+    "#comment" : "alphanumeric book/pool ID (#6757)",
+    "#category": ("booru", "sankaku", "pool"),
+    "#class"   : sankaku.SankakuPoolExtractor,
+    "#count"   : 5,
+},
+
+{
+    "#url"     : "https://www.sankakucomplex.com/books/90",
+    "#category": ("booru", "sankaku", "pool"),
+    "#class"   : sankaku.SankakuPoolExtractor,
+},
+
+{
     "#url"     : "https://beta.sankakucomplex.com/books/90",
     "#category": ("booru", "sankaku", "pool"),
     "#class"   : sankaku.SankakuPoolExtractor,
@@ -119,11 +139,18 @@ __tests__ = (
 
 {
     "#url"     : "https://sankaku.app/posts/y0abGlDOr2o",
+    "#comment" : "extended tag categories; alphanumeric ID (#5073)",
     "#category": ("booru", "sankaku", "post"),
     "#class"   : sankaku.SankakuPostExtractor,
-    "#options"     : {"tags": True},
+    "#options"     : {
+        "tags"     : True,
+        "notes"    : True,
+        "id-format": "alphanumeric",
+    },
     "#sha1_content": "5e255713cbf0a8e0801dc423563c34d896bb9229",
 
+    "id": "y0abGlDOr2o",
+    "notes": (),
     "tags_artist": [
         "bonocho",
     ],
@@ -145,11 +172,37 @@ __tests__ = (
 },
 
 {
+    "#url"     : "https://sankaku.app/posts/VAr2mjLJ2av",
+    "#comment" : "notes (#5073)",
+    "#category": ("booru", "sankaku", "post"),
+    "#class"   : sankaku.SankakuPostExtractor,
+    "#options" : {"notes": True},
+
+    "notes": [
+        {
+            "body"      : "A lonely person, is a lonely person, because he or she is lonely.",
+            "created_at": 1643733759,
+            "creator_id": 1370766,
+            "height"    : 871,
+            "id"        : 1832643,
+            "is_active" : True,
+            "post_id"   : 23688624,
+            "updated_at": 1643733759,
+            "width"     : 108,
+            "x"         : 703,
+            "y"         : 83,
+        },
+    ],
+},
+
+{
     "#url"     : "https://sankaku.app/post/show/360451",
     "#comment" : "legacy post URL",
     "#category": ("booru", "sankaku", "post"),
     "#class"   : sankaku.SankakuPostExtractor,
     "#pattern" : r"https://s\.sankakucomplex\.com/data/ac/8e/ac8e3b92ea328ce9cf7211e69c905bf9\.jpg\?e=.+",
+
+    "id": 360451,
 },
 
 {
@@ -169,10 +222,17 @@ __tests__ = (
     "#options" : {"tags": True},
     "#count"   : 1,
 
+    "id"          : 20758561,
     "tags"        : list,
     "tags_general": [
         "key(mangaka)",
         "key(mangaka)",
+        "english_language",
+        "english_language",
+        "high_resolution",
+        "tagme",
+        "very_high_resolution",
+        "large_filesize",
     ],
 },
 
